@@ -74,19 +74,20 @@ if (isset($_POST['btn'])) {
  <div class="message">
 
      <h1 class="text-left">Dcare</h1>
- 	  <form method="post">
+ 	  <form method="post" action="payment.php">
  	  	<div class="input-group">
  	  		<label>Please Chose the date/time of Appointment</label>
- 	  	  <input type="datetime-local" name="appt_date_time" class="form-control">
+ 	  	  
+			 <input type="datetime-local" name="appt_date_time" class="form-control">
 
+			 
  	  </div>	
  	   <div>
- 	  	  <input type="submit" name="btn" class=" btn btn-primary">
+ 	  	  <input type="submit" name="btn" class=" btn btn-primary" value="Makepayement">
         </div>
  	  </form>
-	$a=9;
-	<?php
-echo $a;?>	<!-- <h1 ><span class="text-warning">Appointment</span>  Booked successfully</h1><br><br> -->
+	
+	<!-- <h1 ><span class="text-warning">Appointment</span>  Booked successfully</h1><br><br> -->
 
 	<label>Click <a onclick="goback()" href="welcome.php" class="text-info stretched-link">here</a> to return</label>
 
