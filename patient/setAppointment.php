@@ -41,6 +41,7 @@ $patientName = $infoPatient['firstName'] . ' ' . $infoPatient['lastName'];
 $patientContact = $infoPatient['mobileNumber'];
 
 if (isset($_POST['btn'])) {
+	
 	$appointmentQuery = "INSERT INTO appointments (doctorId, doctorName, doctorSpeciality, doctorContact, patientId, patientName, patientContact, dateOFBooking) 
                      VALUES ('$doctorId', '$doctorName', '$doctorSpeciality', '$doctorContact', '$patientId', '$patientName', '$patientContact', '{$_POST['appt_date_time']}')";
 
@@ -48,7 +49,7 @@ if (isset($_POST['btn'])) {
 	$QueryExecute = mysqli_query($con, $appointmentQuery);
 
 	if ($QueryExecute) {
-		echo "<script>alert('Thanks for booking the appointment');</script>";
+		header('location:payment.php');
 	} else {
 		die("Error inserting appointment: " . mysqli_error($con));
 	}
@@ -74,22 +75,20 @@ if (isset($_POST['btn'])) {
  <div class="message">
 
      <h1 class="text-left">Dcare</h1>
- 	  <form method="post" action="payment.php">
+ 	  <form method="post">
  	  	<div class="input-group">
  	  		<label>Please Chose the date/time of Appointment</label>
- 	  	  
-			 <input type="datetime-local" name="appt_date_time" class="form-control">
+ 	  	  <input type="datetime-local" name="appt_date_time" class="form-control">
 
-			 
  	  </div>	
  	   <div>
- 	  	  <input type="submit" name="btn" class=" btn btn-primary" value="Makepayement">
+ 	  	  <input type="submit" name="btn" class=" btn btn-primary">
         </div>
  	  </form>
 	
 	<!-- <h1 ><span class="text-warning">Appointment</span>  Booked successfully</h1><br><br> -->
 
-	<label>Click <a onclick="goback()" href="welcome.php" class="text-info stretched-link">here</a> to return</label>
+	<!--<label>Click <a onclick="goback()" href="welcome.php" class="text-info stretched-link">here</a> to return</label>-->
 
 
 </div>
